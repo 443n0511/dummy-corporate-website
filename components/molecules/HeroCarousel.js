@@ -5,9 +5,9 @@ import { Picture } from "../atoms/Picture";
 
 export const HeroCarousel = memo(() => {
   const images = {
-    base: "http://placehold.jp/600x400.png",
-    md: "http://placehold.jp/900x400.png",
-    lg: "http://placehold.jp/1200x400.png",
+    base: "https://picsum.photos/800/500?random=1",
+    md: "https://picsum.photos/800/400?random=2",
+    lg: "https://picsum.photos/800/300?random=3",
   };
 
   const MyDot = ({ isActive }) => (

@@ -1,9 +1,8 @@
 import { memo } from "react";
 import Date from "../../libs/date";
 import { chakra, Badge, Link } from "@chakra-ui/react";
-import { Flex } from "@chakra-ui/layout";
-import { LinkText } from "../atoms/LinkText";
-export const NewsList = memo(({ news }) => {
+import { Box, Flex } from "@chakra-ui/layout";
+export const NewsList = memo(({ news, margin }) => {
   const count = 4;
   const tagColors = [
     { category: "press", color: "green.200" },
@@ -13,9 +12,9 @@ export const NewsList = memo(({ news }) => {
   const list = [];
   const Dd = chakra("dd");
   for (let i = 0; i < count; i++) {
-    const result = tagColors.map((tagColor) => {
-      return tagColor.category === news[i].category.id && tagColor.color;
-    });
+    const result = tagColors.map(
+      (tagColor) => tagColor.category === news[i].category.id && tagColor.color
+    );
     const color = result.filter(Boolean);
 
     list.push(
@@ -27,6 +26,7 @@ export const NewsList = memo(({ news }) => {
           flexDirection={{ base: "column", md: "row" }}
           w={{ base: "100%", md: "80%" }}
           p={4}
+          mx='auto'
           borderBottom='1px'
           borderColor='gray.200'>
           <Flex
@@ -60,10 +60,5 @@ export const NewsList = memo(({ news }) => {
       </Link>
     );
   }
-  return (
-    <>
-      {list}
-      <LinkText href='https://yahoo.co.jp' children='お知らせをもっと見る' />
-    </>
-  );
+  return <Box my={margin}>{list}</Box>;
 });
