@@ -30,12 +30,11 @@ export const ContactCard = memo(
           shadow: "md",
         }}>
         <Center
-          w='200px'
+          w={{ base: "70px", lg: "110px" }}
+          h={{ base: "70px", lg: "110px" }}
           href={url}
           borderRadius='50%'
           transition='.2s'
-          w='110px'
-          h='110px'
           bg='gray.100'
           shadow='md'
           top='0'
@@ -68,7 +67,7 @@ export const ContactCard = memo(
             textDecoration='none'
             transition='.2s'
             display='inline-block'
-            fontSize='md'
+            fontSize={{ base: "sm", lg: "md" }}
             fontWeight='bold'
             borderBottom='solid 3px transparent'
             _groupHover={{
