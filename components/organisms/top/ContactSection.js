@@ -15,7 +15,7 @@ export const ContactSection = memo(() => {
         Contacts
       </Heading>
       <Grid
-        w={{ base: "70%", xl: "90%" }}
+        w='100%'
         m='auto'
         templateRows={{ base: "repeat(3, 1fr)", xl: "repeat(1, 1fr)" }}
         templateColumns={{ base: "repeat(1, 1fr)", xl: "repeat(3, 1fr)" }}
