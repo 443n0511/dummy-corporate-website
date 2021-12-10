@@ -1,7 +1,7 @@
 import { memo } from "react";
 import { SimpleGrid, Box, Heading } from "@chakra-ui/react";
-import { ProductCard } from "../../molecules/ProductCard";
-import { LinkButton } from "../../atoms/button/LinkButton";
+import { ProductCard } from "../../../molecules/ProductCard";
+import { LinkButton } from "../../../atoms/button/LinkButton";
 
 export const ProductSection = memo(() => {
   return (
