@@ -16,8 +16,12 @@ export const ContactCard = memo(
   ({ url, productName, description, description2, iconimage }) => {
     return (
       <Flex
-        p={4}
+        m='auto'
+        px={{ base: 10, md: 100, lg: 4 }}
+        py={4}
+        w={{ base: "80%", md: "60%", lg: "90%" }}
         as='a'
+        justifyContent='center'
         top='0'
         align='center'
         transition='.2s'
