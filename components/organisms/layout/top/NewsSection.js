@@ -1,6 +1,6 @@
 import { memo } from "react";
-import { LinkButton } from "../../atoms/button/LinkButton";
-import { NewsList } from "../../molecules/NewsList";
+import { LinkButton } from "../../../atoms/button/LinkButton";
+import { NewsList } from "../../../molecules/NewsList";
 import { Heading, Box } from "@chakra-ui/layout";
 
 export const NewsSection = memo(({ news }) => {

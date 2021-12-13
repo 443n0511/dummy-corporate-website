@@ -1,6 +1,6 @@
 import { memo } from "react";
 import { SimpleGrid, Box, Heading, Grid } from "@chakra-ui/react";
-import { ContactCard } from "../../molecules/ContactCard";
+import { ContactCard } from "../../../molecules/ContactCard";
 import { PhoneIcon } from "@chakra-ui/icons";
 import { EmailIcon } from "@chakra-ui/icons";
 import { ChatIcon } from "@chakra-ui/icons";
