@@ -20,11 +20,11 @@ export const NewsSection = memo(({ news }) => {
         fontSize={{ base: "4xl", md: "6xl" }}>
         News Release
       </Heading>
-      <NewsList news={news} margin={10} />
+      <NewsList items='4' news={news} margin={10} />
       <LinkButton
         my={10}
         mx='auto'
-        href='https://yahoo.co.jp'
+        href='/news/'
         children='ニュース一覧をみる'
       />
     </Box>
