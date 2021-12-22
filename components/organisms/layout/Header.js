@@ -13,7 +13,7 @@ export const Header = memo(() => {
   };
 
   return (
-    <>
+    <Box as='header'>
       <Flex
         as='nav'
         bg='White'
@@ -26,10 +26,7 @@ export const Header = memo(() => {
         justify='space-between'
         py={{ base: 5, md: 8 }}
         px={{ base: 7, md: 10 }}>
-        <Flex
-          align='center'
-          as='a'
-          _hover={{ cursor: "pointer", color: "gray.900" }}>
+        <Flex align='center' _hover={{ cursor: "pointer", color: "gray.900" }}>
           <Heading
             as='h1'
             href='/'
@@ -43,18 +40,22 @@ export const Header = memo(() => {
           fontSize='md'
           display={{ base: "none", md: "flex" }}>
           <Box pr={10}>
-            <Link>
-              <NextLink href='https://yahoo.co.jp'>商品一覧</NextLink>
-            </Link>
+            <NextLink href={"/"} passHref>
+              <Link>商品一覧</Link>
+            </NextLink>
           </Box>
           <Box pr={10}>
-            <Link>お知らせ</Link>
+            <NextLink href={"/"} passHref>
+              <Link>お知らせ</Link>
+            </NextLink>
           </Box>
-          <Link>お問い合わせ</Link>
+          <NextLink href={"/"} passHref>
+            <Link>お問い合わせ</Link>
+          </NextLink>
         </Flex>
         <MenuIconButton onOpen={onOpen} />
       </Flex>
       <MenuDrawer isOpen={isOpen} onClose={onClose} />
-    </>
+    </Box>
   );
 });
