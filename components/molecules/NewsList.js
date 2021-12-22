@@ -1,63 +1,70 @@
 import { memo } from "react";
 import Date from "../../libs/date";
-import { chakra, Badge, Link } from "@chakra-ui/react";
-import { Box, Flex } from "@chakra-ui/layout";
-export const NewsList = memo(({ news, margin }) => {
-  const count = 4;
+import { Box, Badge, Grid, GridItem } from "@chakra-ui/layout";
+import NextLink from "next/link";
+
+export const NewsList = memo(({ news, margin, items }) => {
   const tagColors = [
     { category: "press", color: "green.200" },
     { category: "important", color: "blue.200" },
     { category: "news", color: "red.200" },
   ];
   const list = [];
-  const Dd = chakra("dd");
-  for (let i = 0; i < count; i++) {
+  for (let i = 0; i < items; i++) {
     const result = tagColors.map(
       (tagColor) => tagColor.category === news[i].category.id && tagColor.color
     );
     const color = result.filter(Boolean);
 
     list.push(
-      <Link key={`/news/${news[i].id}`} href={`/news/${news[i].id}`}>
-        <Flex
+      <NextLink key={news[i].id} href={`/news/${news[i].id}`} passHref>
+        <Grid
           as='dl'
+          m='auto'
           transition='.5s'
-          _hover={{ cursor: "pointer", bgColor: "gray.100", transition: ".5s" }}
-          flexDirection={{ base: "column", md: "row" }}
+          _hover={{
+            cursor: "pointer",
+            bgColor: "gray.100",
+            transition: ".5s",
+          }}
           w={{ base: "100%", md: "80%" }}
-          p={4}
-          mx='auto'
+          templateColumns={{
+            base: "100px 120px auto",
+            lg: " 100px 140px auto",
+          }}
+          templateRows={{ base: "repeat(2, 1fr)", lg: "repeat(1, 1fr)" }}
+          gap={0}
           borderBottom='1px'
           borderColor='gray.200'>
-          <Flex
-            maxWidth={{ base: "200px", lg: "250px" }}
-            as='dt'
-            key={news[i].id}
-            flexBasis='35%'
-            textAlign='left'
+          <GridItem
+            display='grid'
             alignItems='center'
-            justifyContent={{ base: "start", md: "start" }}
-            fontSize={{ base: "s", lg: "xl" }}>
+            as='dt'
+            gridArea=' 1 / 1 / 2 / 2'>
             <Date dateString={news[i].publishedAt} />
-            <Badge
-              as='span'
-              flexShrink='3'
-              size='lg'
-              bg={color}
-              mx={{ base: "1em", md: "3em" }}>
+          </GridItem>
+          <GridItem
+            display='grid'
+            alignItems='center'
+            gridArea=' 1 / 2 / 2 / 3'>
+            <Badge as='span' bg={color} fontSize={{ base: "s", lg: "xl" }}>
               {news[i].category.id}
             </Badge>
-          </Flex>
-          <Dd
-            mt={{ base: 1, lg: 0 }}
-            flexBasis='80%'
+          </GridItem>
+
+          <GridItem
+            as='dd'
+            p={{ base: 2, lg: 5 }}
+            display='grid'
+            alignItems='center'
+            gridArea={{ base: "2 / 1 / 3 / 6", lg: " 1 / 3 / 2 / 6" }}
+            fontWeight='bold'
             textAlign='left'
-            fontSize={{ base: "lg", lg: "2xl" }}
-            fontWeight='bold'>
+            fontSize={{ base: "lg", lg: "2xl" }}>
             {news[i].title}
-          </Dd>
-        </Flex>
-      </Link>
+          </GridItem>
+        </Grid>
+      </NextLink>
     );
   }
   return <Box my={margin}>{list}</Box>;
