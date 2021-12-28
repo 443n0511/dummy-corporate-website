@@ -2,8 +2,8 @@ import { client } from "../../api/client";
 import { Layout } from "../../components/templates/Layout";
 import { Heading, Box } from "@chakra-ui/layout";
 import { NewsList } from "../../components/molecules/NewsList";
-import { LinkButton } from "../../components/atoms/button/LinkButton";
-export default function newsHome({ news }) {
+import { Pagination } from "../../components/molecules/Pagination";
+export default function newsHome({ news, totalCount }) {
   return (
     <Layout
       title='株式会社Sample'
@@ -24,18 +24,25 @@ export default function newsHome({ news }) {
           News Archive
         </Heading>
         <NewsList items={6} news={news} margin={10} />
+        <Pagination totalCount={totalCount} />
       </Box>
     </Layout>
   );
 }
 
 // データをテンプレートに受け渡す部分の処理を記述します
-export const getStaticProps = async () => {
-  const data = await client.get({ endpoint: "news" });
-
+export const getStaticProps = async (context) => {
+  const data = await client.get({
+    endpoint: "news",
+    queries: {
+      limit: 5,
+      offset: 0,
+    },
+  });
   return {
     props: {
       news: data.contents,
+      totalCount: data.totalCount,
     },
   };
 };
