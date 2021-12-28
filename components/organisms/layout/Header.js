@@ -45,7 +45,7 @@ export const Header = memo(() => {
             </NextLink>
           </Box>
           <Box pr={10}>
-            <NextLink href={"/"} passHref>
+            <NextLink href='/news' passHref>
               <Link>お知らせ</Link>
             </NextLink>
           </Box>

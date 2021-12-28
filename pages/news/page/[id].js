@@ -1,9 +1,12 @@
-import { client } from "../../api/client";
-import { Layout } from "../../components/templates/Layout";
+import { client } from "../../../api/client";
+import { Layout } from "../../../components/templates/Layout";
 import { Heading, Box } from "@chakra-ui/layout";
-import { NewsList } from "../../components/molecules/NewsList";
-import { Pagination } from "../../components/molecules/Pagination";
-export default function newsHome({ news, totalCount }) {
+import { NewsList } from "../../../components/molecules/NewsList";
+import { Pagination } from "../../../components/molecules/Pagination";
+
+const PER_PAGE = 5;
+export default function NewsPageId({ news, totalCount }) {
+  console.log(news);
   return (
     <Layout
       title='株式会社Sample'
@@ -30,13 +33,25 @@ export default function newsHome({ news, totalCount }) {
   );
 }
 
-// データをテンプレートに受け渡す部分の処理を記述します
+// 動的なページを作成
+export const getStaticPaths = async () => {
+  const data = await client.get({ endpoint: "news" });
+  const range = (start, end) =>
+    [...Array(end - start + 1)].map((_, i) => start + i);
+
+  const paths = range(1, Math.ceil(data.totalCount / PER_PAGE)).map(
+    (number) => `/news/page/${number}`
+  );
+  return { paths, fallback: false };
+};
+
 export const getStaticProps = async (context) => {
+  const id = context.params.id;
   const data = await client.get({
     endpoint: "news",
     queries: {
       limit: 5,
-      offset: 0,
+      offset: (id - 1) * 5,
     },
   });
   return {
