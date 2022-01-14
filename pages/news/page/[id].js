@@ -9,7 +9,7 @@ export default function NewsPageId({ news, totalCount }) {
   console.log(news);
   return (
     <Layout
-      title='株式会社Sample'
+      title='お知らせ一覧 | 株式会社Sample'
       description='株式会社Sampleのお知らせ一覧ページ'>
       <Box
         as='section'
