@@ -1,6 +1,5 @@
 import { client } from "../api/client";
 import { Layout } from "../components/templates/Layout";
-import { Box } from "@chakra-ui/layout";
 import { NewsSection } from "../components/organisms/layout/top/NewsSection";
 import { ProductSection } from "../components/organisms/layout/top/ProductSection";
 import { HeroCarousel } from "../components/molecules/HeroCarousel";
@@ -20,7 +19,7 @@ export default function Home({ news }) {
 }
 
 // データをテンプレートに受け渡す部分の処理を記述します
-export const getStaticProps = async (context) => {
+export const getStaticProps = async () => {
   const data = await client.get({
     endpoint: "news",
     queries: {

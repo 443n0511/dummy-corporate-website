@@ -1,6 +1,5 @@
-import { createClient } from 'microcms-js-sdk';
-
+import { createClient } from "microcms-js-sdk";
 export const client = createClient({
-  serviceDomain: 'monaca',
-  apiKey: process.env.API_KEY,
+  serviceDomain: NEXT_PUBLIC_SERVICE_DOMAIN,
+  apiKey: NEXT_PUBLIC_API_KEY,
 });

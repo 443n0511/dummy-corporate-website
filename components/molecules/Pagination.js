@@ -1,9 +1,10 @@
-import { Link, Flex, Box } from "@chakra-ui/react";
+import { memo } from "react";
 import { useRouter } from "next/router";
+import { Flex, Box } from "@chakra-ui/react";
 
 import NextLink from "next/link";
 import React from "react";
-export const Pagination = ({ totalCount }) => {
+export const Pagination = memo(({ totalCount }) => {
   const router = useRouter();
   const PER_PAGE = 5;
   const range = (start, end) =>
@@ -29,4 +30,4 @@ export const Pagination = ({ totalCount }) => {
       ))}
     </Flex>
   );
-};
+});
