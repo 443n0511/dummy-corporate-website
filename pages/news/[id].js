@@ -33,12 +33,9 @@ export default function NewsId({ news }) {
             __html: `${news.body}`,
           }}
         />
-        <LinkButton
-          my={10}
-          mx='auto'
-          href='/news/'
-          children='ニュース一覧をみる'
-        />
+        <LinkButton my={10} mx='auto' href='/news/'>
+          ニュース一覧をみる
+        </LinkButton>
       </Box>
     </Layout>
   );
