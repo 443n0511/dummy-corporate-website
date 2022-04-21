@@ -5,9 +5,21 @@ import { Picture } from "../atoms/Picture";
 
 export const HeroCarousel = memo(() => {
   const images = {
-    base: "https://picsum.photos/800/500?random=1",
-    md: "https://picsum.photos/800/400?random=2",
-    lg: "https://picsum.photos/800/300?random=3",
+    base: [
+      "https://picsum.photos/800/500?random=1",
+      "https://picsum.photos/800/500?random=2",
+      "https://picsum.photos/800/500?random=3",
+    ],
+    md: [
+      "https://picsum.photos/800/400?random=1",
+      "https://picsum.photos/800/400?random=2",
+      "https://picsum.photos/800/400?random=3",
+    ],
+    lg: [
+      "https://picsum.photos/800/300?random=1",
+      "https://picsum.photos/800/300?random=2",
+      "https://picsum.photos/800/300?random=3",
+    ],
   };
 
   const MyDot = ({ isActive }) => (
@@ -41,13 +53,25 @@ export const HeroCarousel = memo(() => {
           ]}
           mobileBreakpoint={670}>
           <Carousel.Item>
-            <Picture base={images.base} md={images.md} lg={images.lg} />
+            <Picture
+              base={images.base[0]}
+              md={images.md[0]}
+              lg={images.lg[0]}
+            />
           </Carousel.Item>
           <Carousel.Item>
-            <Picture base={images.base} md={images.md} lg={images.lg} />
+            <Picture
+              base={images.base[1]}
+              md={images.md[1]}
+              lg={images.lg[1]}
+            />
           </Carousel.Item>
           <Carousel.Item>
-            <Picture base={images.base} md={images.md} lg={images.lg} />
+            <Picture
+              base={images.base[2]}
+              md={images.md[2]}
+              lg={images.lg[2]}
+            />
           </Carousel.Item>
         </Carousel>
       </Box>
