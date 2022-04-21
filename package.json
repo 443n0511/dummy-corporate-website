@@ -6,15 +6,37 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "next lint",
+    "format": "prettier --write --ignore-path .gitignore './**/*.{js,jsx,ts,tsx,json,css}'"
   },
   "dependencies": {
-    "next": "11.1.2",
-    "react": "17.0.2",
-    "react-dom": "17.0.2"
+    "@chakra-ui/icons": "^1.0.17",
+    "@chakra-ui/react": "^1.6.8",
+    "@emotion/react": "^11.4.1",
+    "@emotion/styled": "^11.3.0",
+    "@fontsource/montserrat": "^4.5.1",
+    "@fontsource/noto-sans-jp": "^4.5.1",
+    "@fontsource/open-sans": "^4.5.1",
+    "@fontsource/raleway": "^4.5.0",
+    "date-fns": "^2.24.0",
+    "framer-motion": "^4.1.17",
+    "microcms-js-sdk": "^1.3.0",
+    "next": "^11.1.3",
+    "react": "^16.8.0  || ^17.0.0",
+    "react-dom": "^16.8.0  || ^17.0.0",
+    "react-grid-carousel": "^1.0.1",
+    "react-router-dom": "^5.3.0",
+    "react-router-scroll-to-top": "^1.1.2",
+    "react-scroll": "^1.8.4"
   },
   "devDependencies": {
     "eslint": "7.32.0",
-    "eslint-config-next": "11.1.2"
+    "eslint-config-next": "11.1.2",
+    "eslint-config-prettier": "^8.3.0",
+    "prettier": "^2.4.1"
+  },
+  "peerDependencies": {
+    "react": "^16.8.0  || ^17.0.0",
+    "react-dom": "^16.8.0  || ^17.0.0"
   }
 }
